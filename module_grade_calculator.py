@@ -39,25 +39,35 @@ def main():
     while True:
         # create a try/except block to catch the ValueError
         try:
-            module_count = int(input("How many modules are there? "))
+            grades = []
+            module_count = int(input("How many modules are there (2/3)? "))
             if module_count == 2:
-                module_1 = float(input("Enter the first module grade: "))
-                module_2 = float(input("Enter the second module grade: "))
-                module_grade_average = module_grade_average_2(module_1, module_2)
-                print("Module 1 grade:", module_1)
-                print("Module 2 grade:", module_2)
-                print("The module grade average is: " + str(module_grade_average))
-                print("The transmuted grade is: " + str(transmute(module_grade_average)))
+                module_1 = float(input("Enter MODULE 1 grade: "))
+                grades.append(module_1)
+                module_2 = float(input("Enter MODULE 2 grade: "))
+                grades.append(module_2)
+                clear()
+                if 5 in grades:
+                    print("You got a grade of 5, please reach out to your professor.")
+                else:
+                    module_grade_average = module_grade_average_2(module_1, module_2)
+                    print("The module grade average is: " + str(module_grade_average))
+                    print("The transmuted grade is: " + str(transmute(module_grade_average)))
             elif module_count == 3:
-                module_1 = float(input("Enter the first module grade: "))
-                module_2 = float(input("Enter the second module grade: "))
-                module_3 = float(input("Enter the third module grade: "))
+                clear()
+                module_1 = float(input("Enter MODULE 1 grade: "))
+                grades.append(module_1)
+                module_2 = float(input("Enter MODULE 2 grade: "))
+                grades.append(module_2)
+                module_3 = float(input("Enter MODULE 3 grade: "))
+                grades.append(module_3)
                 module_grade_average = module_grade_average_3(module_1, module_2, module_3)
-                print("Module 1 grade:", module_1)
-                print("Module 2 grade:", module_2)
-                print("Module 3 grade:", module_3)
-                print("The module grade average is: " + str(module_grade_average))
-                print("The transmuted grade is: " + str(transmute(module_grade_average)))
+
+                if 5 in grades:
+                    print("You got a grade of 5, please reach out to your professor.")
+                else:
+                    print("The module grade average is: " + str(module_grade_average))
+                    print("The transmuted grade is: " + str(transmute(module_grade_average)))
             else:
                 clear()
                 print("You have entered an invalid number of modules")
